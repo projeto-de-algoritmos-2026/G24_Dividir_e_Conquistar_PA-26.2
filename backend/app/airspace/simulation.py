@@ -137,7 +137,7 @@ class Simulation:
             },
             "candidates_count": len(radius_search.pairs),
             "candidate_search": {
-                "radius_km": search_radius,
+                "radius_km": round(search_radius, 1),
                 "distance_checks": radius_search.distance_checks,
                 "median_comparisons": radius_search.selection_comparisons,
                 "median_splits": len(radius_search.splits),
@@ -146,8 +146,8 @@ class Simulation:
             },
             "conflicts": classify_conflicts(radius_search.pairs, PREDICTION_HORIZON_MINUTES),
             "landing_sequences": build_landing_sequences(aircraft),
-            "algorithm": "par mais prÃ³ximo O(n log n) + busca por raio com divisÃ£o pela mediana das medianas",
-            "scenario": "TrÃ¡fego regional",
+            "algorithm": "par mais próximo O(n log n) + busca por raio com divisão pela mediana das medianas",
+            "scenario": "Tráfego regional",
         }
 
     def analysis(self):
@@ -173,7 +173,7 @@ class Simulation:
                 "steps": closest.steps,
             },
             "radius_search": {
-                "radius_km": search_radius,
+                "radius_km": round(search_radius, 1),
                 "pairs": pairs_as_ids(radius_search.pairs),
                 "splits": radius_search.splits,
                 "distance_checks": radius_search.distance_checks,
